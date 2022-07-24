@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const PomodoroClock = () => {
     // let [sec,setSec] =useState(60);
-    let [sec, setSec] = useState(60)
-    let [minute, setminute] = useState(24);
+    let [sec, setSec] = useState(0)
+    let [minute, setminute] = useState(25);
     const [progress, setProgress] = useState(100)
     const [start, setStart] = useState(false);
     const [cycle, setCycle] = useState(1);
@@ -16,7 +16,7 @@ const PomodoroClock = () => {
 
     const handleStart = () => {
         setminute(24)
-        setSec(60)
+        setSec(59)
         setProgress(100)
         setStart(true)
         count.current = 0;
@@ -30,10 +30,10 @@ const PomodoroClock = () => {
         if (start) {
             const interval = setInterval(() => {
                 setSec(sec - 1)
-                setProgress(progress - progressRatio.current / 61)
+                setProgress(progress - progressRatio.current / 60)
                 if (sec === 0) {
                     setminute(minute - 1)
-                    setSec(60)
+                    setSec(59)
                 }
             }, 1000)
             if (minute === -1) {
@@ -54,14 +54,14 @@ const PomodoroClock = () => {
                     // setSec(60)
 
                 }
-                setSec(60)
+                setSec(59)
                 setProgress(100)
 
             }
             if (count.current === cycle * 2) {
                 clearInterval(interval);
-                setminute('00')
-                setSec('00')
+                setminute(25)
+                setSec(0)
                 setStatusMessage(`${cycle} cycle count complete`)
                 setStart(false)
             }
@@ -73,7 +73,7 @@ const PomodoroClock = () => {
     const display = <div className='relative'>
         <div className='text-white absolute bottom-3 -right-8'>{minute<10 && '0'}{minute}
         </div>
-        <div className='text-slate-500 absolute -right-10 font-thin'>{sec<10&&'0'}{sec}</div>
+        <div className='text-slate-500 absolute -right-9 font-thin'>{sec<10&&'0'}{sec}</div>
     </div>
 
     // console.log(sec)
