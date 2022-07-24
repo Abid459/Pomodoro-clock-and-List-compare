@@ -16,7 +16,7 @@ const CompareList = () => {
         let count = 1;
         const output = arr.map(item => {
             return <div key={count} className="overflow-x-auto">
-                <p className='bg-slate-200 mb-1 p-3 rounded font-semibold'>{count++}. {item}</p>
+                <p className='bg-slate-300 mb-1 p-3 rounded font-semibold'>{count++}. {item}</p>
             </div>
         })
         return output;
@@ -25,7 +25,7 @@ const CompareList = () => {
     const handleCompare = () => {
         const inputA = inputARef.current.value;
         const inputB = inputBRef.current.value;
- 
+
 
         const inputA_Arr = inputA.split('\n');
         const inputB_Arr = inputB.split('\n');
@@ -51,9 +51,9 @@ const CompareList = () => {
 
     return (
         <div className='min-h-screen bg-slate-600 px-10'>
-            <div className='flex  justify-center  items-center pt-10'>
-                <div className='bg-slate-400 w-full text-center text- p-5'>
-                    <h3 className='text-xl mb-4'>List-A</h3>
+            <div className='flex flex-wrap lg:flex-nowrap justify-center  items-center pt-10 rounded-3xl'>
+                <div className='bg-slate-400 w-full text-center text- p-5 rounded-3xl lg:mr-10 mb-12 md:mb-0 lg:mb-0  '>
+                    <h3 className='text-xl mb-4 text-white'>List-A</h3>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Enter your First list and separate them by new line</span>
@@ -61,10 +61,10 @@ const CompareList = () => {
                         <textarea ref={inputARef} className="textarea textarea-bordered h-40" placeholder="List-A"></textarea>
                     </div>
                 </div>
-                <div className='bg-slate-400 w-full text-center text- p-5'>
-                    <h3 className='text-xl mb-4'>List-B</h3>
+                <div className='bg-slate-400 w-full text-center text- p-5 rounded-3xl'>
+                    <h3 className='text-xl mb-4 text-white'>List-B</h3>
                     <div className="form-control">
-                    <label className="label">
+                        <label className="label">
                             <span className="label-text">Enter your Second list and separate them by new line</span>
                         </label>
                         <textarea ref={inputBRef} className="textarea textarea-bordered h-40" placeholder="List-B"></textarea>
@@ -76,7 +76,7 @@ const CompareList = () => {
             <div className='flex justify-center my-10'>
                 <button onClick={handleCompare} className="btn ">COMPUTE</button>
             </div>
-            <div className='flex flex-wrap justify-between bg-slate-50 p-10'>
+            <div className='flex flex-wrap justify-between bg-slate-200 p-10 rounded-md'>
                 <div className=''>
                     <h3 className='font-semibold mb-5 bg-slate-300 p-4 text-center'>Items inside List-A</h3>
                     {outputA}
