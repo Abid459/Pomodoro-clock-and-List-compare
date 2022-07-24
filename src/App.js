@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import CompareList from './components/CompareList';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <CompareList></CompareList>
+      <Header></Header>
     </div>
   );
 }
